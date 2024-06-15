@@ -48,12 +48,12 @@ function transform(oldPointStructure) {
          newStructure[letter.toLowerCase()] = Number(score);
       }
    }
-   //newStructure[' '] = 0; // moved this line out if the function as it fails the unit test
+   //newStructure[' '] = 0; // moved this line out of the function as it fails the unit test
    return newStructure;
 };
 
 let newPointStructure = transform(oldPointStructure);
-newPointStructure[' '] = 0; //Bonus task: I added this code inside transform function, but it started failing unit test. Moved the code here
+newPointStructure[' '] = 0; //Bonus task: initially added this code inside transform function, but it started failing unit test. Moved the code here
 
 let simpleScorer = word => {
    word = word.toLowerCase();
@@ -95,7 +95,6 @@ function isValidWordToScore(word) {
       }
    }
    return word.length === letters.length;
-
 }
 
 const scoringAlgorithms = [
@@ -108,7 +107,7 @@ function scorerPrompt() {
    let prompt = getPropmtForScoring();
    let selectedAlgorithm = input.question(prompt);
    while (scoringAlgorithms[selectedAlgorithm] === undefined) {
-      prompt = "Oops! There is no such an algorithm. Try again!\n".concat(getPropmtForScoring());      
+      prompt = "Oops! There is no such an algorithm. Try again!\n".concat(getPropmtForScoring());
       selectedAlgorithm = input.question(prompt);
    }
    return scoringAlgorithms[selectedAlgorithm];
@@ -116,11 +115,11 @@ function scorerPrompt() {
 
 function getPropmtForScoring() {
    let prompt = "Which scoring algorithm would you like to use?\n";
-      for (let index = 0; index < scoringAlgorithms.length; index++) {
-         prompt += (`${index} - ${scoringAlgorithms[index]["name"]}: ${scoringAlgorithms[index]["description"]}\n`);
-      }
-      prompt += ("Enter 0, 1, or 2: ");
-      return prompt;
+   for (let index = 0; index < scoringAlgorithms.length; index++) {
+      prompt += (`${index} - ${scoringAlgorithms[index]["name"]}: ${scoringAlgorithms[index]["description"]}\n`);
+   }
+   prompt += ("Enter 0, 1, or 2: ");
+   return prompt;
 }
 
 function runProgram() {
