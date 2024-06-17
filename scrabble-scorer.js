@@ -69,7 +69,7 @@ let simpleScorer = word => {
 let vowelBonusScorer = word => {
    let points = simpleScorer(word);
    word = word.toLowerCase();
-   const vowels = ["a", "o", "u", "e", "y", "i"]
+   const vowels = ["a", "o", "u", "e", "i"]
    for (let index = 0; index < word.length; index++) {
       if (vowels.includes(word[index])) {
          points += 2;
