@@ -89,7 +89,7 @@ let scrabbleScorer = (word) => {
 
 function isValidWordToScore(word) {
    let letters = "";
-   word = word.toLowerCase;
+   word = word.toLowerCase();
    for (let index = 0; index < word.length; index++) {
       if (word[index] in newPointStructure) {
          letters += word[index];
